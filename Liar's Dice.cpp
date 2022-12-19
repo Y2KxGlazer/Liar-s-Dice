@@ -1,16 +1,4 @@
-/* This is a project that allows users to play Liar's Dice, 
-The current iteration of the game isn't finished as it would go on forever
-Because the dice aren't removed after challenges. Another problem is that in the actual game of liar's dice,
-The dice value of 1 wouldn't be equal to 1 but instead it would be equal to the faceValue of the current 
-wages, this can be accounted for by just summing the number of 1's and adding it to the the sum of current faceValues.
-Another problem is that the dice won't be rerolled after a challenge has started. I know the faults with this 
-program but I want to turn something that'll work in,
-as opposed to adding these new but vital features of liars dice which would cause 
-other problems wot arise. I've had a great deal of fun and my understanding of pointers has grown immensely 
-because I'm lucky enough that I've gotten this far,
-
-This has been a very hard endeavor, I also couldn't refactor the code so it's a bit messy but ya'know
-*/
+/* This is a project that allows users to play Liar's Dice*/
 #include <iostream>
 #include <iomanip>
 #include <numeric>
@@ -66,8 +54,6 @@ public:
         if (this->m_diceCount == 0) {// Also removes a player from the LL if 
             totalPlayersStillIn--;
             removePlayer();
-            // we need a function that will take the this object pointers
-            // and initiate the deletion of that node from the circular linked list.
 
         }
     }
@@ -190,32 +176,6 @@ void initPlayers() { // Connects nodes to form doubly circular linked list, ask 
 }
 
 
-    // what to do after starting game?
-    // for loop, ask players for name, maybe.
-
-    // Order the linked list by dice rolled, akin to swapping variables.
-        // roll dice first, input struct into function by reference,
-        // that function should compare m_totaldicecount and just swap the variables 
-        // 
-        // This is a bit complex as I've done a little bit of research on 
-        // I found it easier since we're using  circular linked list to instead 
-        // start the game at the index of the player who had the highest roll.
-        // 
-        // 
-    // Loop through linked list until challenge happens.... 
-        // WOW big problem... So in liar's dice, you need to know who is challenging, 
-        // and the person who's being challenged.With the way my program works, if player 3 challenges
-        // player 4, I dont think there's a way for the program to know that it was player 3 so we can 
-        // remove one of their die if they happen to lose the challenge.
-        // One untested solution is to have a pinter member var == (total players - 1)+ &next) which should put us 
-        // right to the player that preceeds the player that chose to challenge. This would create a doubly
-        // circular linked list. As you may have noticed, 
-        // my code always seems to work in theory but never in practice, so let's hope it's not hard to implement.
-    // Ignore second half of this because some code was rewritten.
-
-
-
-
 void startGame() { // This just determins who the first player should be at the start of the game.
     cout << "The game of liar dice has started and the first dices have been rolled!\n";
     player1Index = determineFirstPlayer(individual);
@@ -234,6 +194,7 @@ int determineFirstPlayer(vector<Player> &vect) { // The person with the highest 
             index = i;
         }
     }
+
     return index;
 }
 
@@ -305,32 +266,5 @@ void onChallengeYes(vector<Player>& individual) {
 
 
 }
-
-void challenderLoser() {
-
-}
-
-
-
-// SOLVED: Problem 1. isPlayable() ternary won't return true or false???
-// 
-// Solved: Ask the user if they wish to read the rules
-
-// Problem 2: Massive problem that I can't seem to fix. Been working on it for about a week now
-// Basically calling the method to roll the dice always causes a crash. No clue how to fix this.
-// Solved: Still don't know what the problem was, just rewrote the code and it worked.
-
-// The coding has been going mostly smooth so far after that bug was fixed.
-// I doubt I'll have enough time to make everything the way it should be but I hope I can.
-
-// Again most things were create getters and setters.
-
-// Problem 3: The double while loop in the game's main functino was a bit of a pain, because of how
-// Liar's dice is meant to be played, I used mostly drawings in MSPaint to represent what 
-// needed to happen as it was mostly just understand the values that are meant to be compared.
-
-
-
-
 
 
